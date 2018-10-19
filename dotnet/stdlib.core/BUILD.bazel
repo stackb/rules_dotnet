@@ -93,8 +93,10 @@ core_stdlib(name = "netstandard.dll", deps = [
       ":system.diagnostics.tracing.dll",
       ":system.drawing.primitives.dll",
       ":system.linq.expressions.dll",
+      
       ":system.io.compression.dll",
       ":system.io.compression.zipfile.dll",
+      
       ":system.io.filesystem.dll",
       ":system.io.filesystem.driveinfo.dll",
       ":system.io.filesystem.watcher.dll",
@@ -524,7 +526,7 @@ core_stdlib(name = "system.io.compression.zipfile.dll", deps = [
       ":system.buffers.dll",
     ],
     data = [
-      "@core_sdk//:shared/clrcompression.dll"
+      #"@core_sdk//:shared/clrcompression.dll"
     ]
 )
 core_stdlib(name = "system.io.dll", deps = [
