@@ -127,7 +127,6 @@ def emit_assembly_core(dotnet,
 
   paramfilepath = name+extension+".param"
   paramfile = dotnet.declare_file(dotnet, path=paramfilepath)
-
   dotnet.actions.write(output = paramfile, content = runner_args)
 
   deps_files = _map_dep(deps)
@@ -136,8 +135,8 @@ def emit_assembly_core(dotnet,
       outputs = [result] + ([pdb] if pdb else []),
       executable = dotnet.runner,
       arguments = [dotnet.mcs.path, "@"+paramfile.path],
-      progress_message = (
-          "Compiling " + dotnet.label.package + ":" + dotnet.label.name))
+      progress_message = "Compiling " + dotnet.label.package + ":" + dotnet.label.name,
+  )
 
   extra = depset(direct = [result] + [dotnet.stdlib] + ([pdb] if pdb else []), transitive = [t.files for t in data] if data else [])
   direct = extra.to_list()   
